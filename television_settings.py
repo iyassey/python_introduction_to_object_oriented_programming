@@ -19,10 +19,13 @@ class TV():
         self.channel_list = channel_list
         self.current_channel = current_channel
 
-#define the parameters of the constructor
-
-
 #create a method that turns on the television
+    def turn_on(self):
+        if self.status == "ON":
+            print("TV is already turned on.")
+        else:
+            self.status = "ON"
+            print("TV will turn on.")
 
 #create a method that turns off the television
 
