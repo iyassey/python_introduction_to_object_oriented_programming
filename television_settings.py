@@ -28,6 +28,12 @@ class TV():
             print("TV will turn on.")
 
 #create a method that turns off the television
+    def turn_off(self):
+        if self.status == "OFF":
+            print("TV is already turned off.")
+        else:
+            self.status = "OFF"
+            print("TV will turn off.")
 
 #create a method that allows that user to change the volume settings
 
