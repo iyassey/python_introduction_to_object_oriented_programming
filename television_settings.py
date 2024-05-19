@@ -34,7 +34,42 @@ class TV():
         else:
             self.status = "OFF"
             print("TV will turn off.")
+    
 
 #create a method that allows that user to change the volume settings
+    def volume_settings(self):
+        while True:
+            try:
+                volume = input("Volume 1-7 \nVolume down '<' \nVolume up '>' \nExit 'e' \nChoose:")
+                for answer in range(len(volume)):
+                    volume = ord(volume[answer]) #convert the input volume to the decimanal equivalent of ascii
+                    volume = int(volume) #convert to integer
+
+                if volume == 101: #"101" decimal equivalent of character "e" in ascii
+                    break #exits the loop for volume settings
+
+                if volume == 60: #"60" decimal equivalent of character "<"in ascii. 
+                    if self.volume <=1: #minimum volume 
+                        print("Min Volume: 1") 
+                    else:
+                        self.volume -=1 #reduce volume given that the volume is not less than or equal to one
+                        print("Current Volume:",self.volume)
+
+                if volume == 62: #"62" decimal equivalent of character ">" in ascii
+                    if self.volume >=7: #maximum volume 
+                        print("Max volume: 7")
+                    else:
+                        self.volume +=1
+                        print("Current Volume:",self.volume) #raise the volume given that the volume is not greater than or equal to seven
+                
+                if 1<=volume<=7: #is the user chose a specific volume
+                    self.volume = volume
+                    print("Current volume: ",self.volume)
+                
+            except ValueError:
+                print("Unknown Command")
+                continue
+            
+        
 
 #create a method that alllows that user to change the channel settings
