@@ -42,7 +42,7 @@ class TV():
             try:
                 volume = input("Volume 1-7 \nVolume down '<' \nVolume up '>' \nExit 'e' \nChoose:")
                 for answer in range(len(volume)):
-                    volume = ord(volume[answer]) #convert the input volume to the decimanal equivalent of ascii
+                    volume = ord(volume[answer]) #convert the input volume to the decimal equivalent of ascii
                     volume = int(volume) #convert to integer
 
                 if volume == 101: #"101" decimal equivalent of character "e" in ascii
@@ -73,3 +73,37 @@ class TV():
         
 
 #create a method that alllows that user to change the channel settings
+    def channel_settings(self):
+        while True:
+            try:
+                channel = input("Channel 1-120 \nChannel up '>' \nChannel down '< \nRandom Channel 'r' \nExit 'e' \nChoose: ")
+                for answer in range(len(channel)):
+                    channel = ord(channel[answer]) #convert the channel input into the decimal equivalent of ascii
+                    channel = int(channel) #convert to integer
+                
+                if channel == 101:
+                    break
+
+                if channel == 60:
+                    if self.current_channel == 1:
+                        print("There are no more channel lower than this.")
+                    else:
+                        self.current_channel -= 1 
+                        print("Current Channel: ", self.current_channel)
+                
+                if channel == 62:
+                    if self.current_channel >=120:
+                        print("There are no more channel beyond this.")
+                    else:
+                        self.current_channel +=1
+                        print("Current channel: ", self.current_channel)
+                
+                if 1<=channel<121:
+                    self.current_channel = channel -1
+                
+                if channel == 114:
+                    random_number = random.randint(0, len(self.channel_list) -1)
+                    self.current_channel = self.channel_list[random_number]
+                    print("Current Channel: ",self.current_channel)
+            except ValueError:
+                print("Unknown Command")
