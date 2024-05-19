@@ -109,3 +109,29 @@ class TV():
                     print("Current Channel: ",self.current_channel)
             except ValueError:
                 print("Unknown Command")
+
+    #Create a method that allows that user to change channge list settings
+    def channel_list_settings(self):
+        while True:
+            try:
+                channel_list = str(input("Change Channel Name 'c' \nAdd Channel 'a' \nChoose"))
+                channel_list = channel_list.lower()
+
+                if channel_list == "c":
+                    channel_name = input("Enter a channel name: ")
+                    channel_number = int(input("Enter the channel number: "))
+                    self.channel_list[channel_number - 1] = channel_name
+                    print(f"Channel name was successfully changed \nChannel number:{channel_number} \nChannel Name: {channel_name}")
+                    break
+                
+                elif channel_list == "a":
+                    add_channel_name = input("Enter a channel name: ")
+                    self.channel_list.append(add_channel_name)
+                    break
+            
+            except ValueError:
+                print("Unknonw Command")
+                
+    
+
+
