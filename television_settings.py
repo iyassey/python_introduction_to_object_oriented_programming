@@ -2,6 +2,8 @@
 #date_may_05_2024
 #Create a Python Code for creating the Class named TV and a Test Driver program named TestTV that will create two objects from Class TV 
 
+#import module
+import random
 
 #create a class named TV
 class TV():
@@ -72,7 +74,7 @@ class TV():
             
         
 
-#create a method that alllows that user to change the channel settings
+#create a method that allows the user to change the channel settings
     def channel_settings(self):
         while True:
             try:
