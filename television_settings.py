@@ -80,7 +80,7 @@ class TV():
                     print("\n")
                     break
             except:
-                print("\n")
+                print("Invalid Input \n")
                 continue
                 
 #create a method that allows the user to change the channel settings
@@ -129,6 +129,7 @@ class TV():
                     print("\n")
                     break
             except:
+                print("\n")
                 continue
 
     #Create a method that allows that user to change channel list settings

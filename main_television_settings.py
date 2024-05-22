@@ -32,10 +32,12 @@ def change_settings_tv1():
             if tv_command == "10":
                 tv1.tv_information_1()
                 print("Thank you for using my program")
+                time.sleep(3)
                 exit()
 
             elif tv_command == "9":
                 print("Exiting tv1 settings \n")
+                time.sleep(3)
                 break
 
             elif tv_command == "1":
@@ -91,10 +93,12 @@ def change_settings_tv2():
             if tv_command == "10":
                 tv2.tv_information_2()
                 print("Thank you for using my program")
+                time.sleep(3)
                 exit()
 
             elif tv_command == "9":
                 print("Exiting tv2 settings \n")
+                time.sleep(3)
                 break
 
             elif tv_command == "1":
@@ -129,7 +133,10 @@ def change_settings_tv2():
 	
 #Create the main method
 def main():
-    print("""
+
+
+    while True:
+        print("""
         --------------TV--------------
         1. TV1
         2. TV2
@@ -137,24 +144,27 @@ def main():
         4. TV2 Information
         5. Exit
     """)
-
-    while True:
         try:
             answer = int(input("Choose: "))
             if answer == 1:
                 television_settings = change_settings_tv1()
+                print('\n')
 
             elif answer == 2:
                 television_settings = change_settings_tv2()
+                print("\n")
 
             elif answer == 3:
                 television_settings = tv1.tv_information_1()
+                print("\n")
 
             elif answer == 4:
                 television_settings = tv2.tv_information_2()
+                print("\n")
 
             elif answer == 5:
                 print("Thank you for using my program!")
+                time.sleep(3)
                 exit()
             else:
                 continue
