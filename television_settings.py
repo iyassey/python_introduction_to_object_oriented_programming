@@ -64,7 +64,7 @@ class TV():
                     else:
                         self.volume +=1
                         print("Volume Level:",self.volume ,"\n") #raise the volume given that the volume is not greater than or equal to seven
-            except ValueError:
+            except:
                 print("Unknown Command \n")
                 continue
 
@@ -79,7 +79,7 @@ class TV():
                 elif volume_level == 10:
                     print("\n")
                     break
-            except ValueError:
+            except:
                 continue
                 
 #create a method that allows the user to change the channel settings
@@ -112,7 +112,7 @@ class TV():
                     random_number = random.randint(0, len(self.channel_list) -1)
                     self.current_channel = self.channel_list[random_number]
                     print("Current Channel: ",self.current_channel, "\n")
-            except ValueError:
+            except:
                 print("Unknown Command \n")
     
     #Create a method  that allows the user to choose a channel number
@@ -126,7 +126,7 @@ class TV():
                 elif channel_number == 0:
                     print("\n")
                     break
-            except ValueError:
+            except:
                 continue
 
     #Create a method that allows that user to change channel list settings
@@ -148,7 +148,7 @@ class TV():
                     self.channel_list.append(add_channel_name)
                     break
             
-            except ValueError:
+            except:
                 print("Unknonw Command \n")
     
     def tv_information_1(self):
@@ -176,123 +176,5 @@ class TV():
     	return "---All the information---\nTV Current Status: {}\nTV Current Volume: {}\nTV Channel List: {}\nTV Current Channel: {}".format(self.status, self.volume, self.channel_list, self.current_channel)
 
 
-#Create the object "tv1" and "tv2"
-tv1 = TV()
-tv2 = TV()
-
-#Create a method that will allow the user to change the television settings
-#Create a method that will allow the user to change the settings of tv 1
-
-def change_settings_tv1():
-    print("""
-        --------------TV1 SYSTEM--------------
-        1. ON
-        2. OFF
-        3. Change Volume Level by 1
-        4. Choose Volume Number
-        5. Change Channel by 1
-        6. Change Channel Number
-        7. Channel Settings
-        8. TV Info
-        9. Exit TV1 Settings 
-        10. Shut down
-    """)
-    while True:
-    
-        tv_command = input("Enter your command: ")
-
-        if tv_command == "10":
-            tv1.tv_information_1
-            time.sleep(5)
-            exit()
-
-        elif tv_command == "9":
-            print("Exiting tv1 settings")
-            break
-
-        elif tv_command == "1":
-            tv1.turn_on()
-        
-        elif tv_command == "2":
-            tv1.turn_off()
-        
-        elif tv_command == "3":
-            tv1.volume_settings()
-        
-        elif tv_command == "4":
-            tv1.choose_volume_number()
-        
-        elif tv_command == "5":
-            tv1.channel_settings()
-
-        elif tv_command == "6":
-            tv1.choose_channel_number()
-        
-        elif tv_command == "7":
-            tv1.channel_list_settings()
-        
-        elif tv_command == "8":
-            tv1.tv_information_1()
-        
-        else:
-            print("Invalid Command \n")
-            continue
-
-#Create a method that will allow the user to change the settings of tv 2
-
-def change_settings_tv2():
-    print("""
-        --------------TV2 SYSTEM--------------
-        1. ON
-        2. OFF
-        3. Change Volume Level by 1
-        4. Choose Volume Number
-        5. Change Channel by 1
-        6. Change Channel Number
-        7. Channel Settings
-        8. TV Info
-        9. Exit TV1 Settings 
-        10. Shut down
-    """)
-    while True:
-    
-        tv_command = input("Enter your command: ")
-
-        if tv_command == "10":
-            tv2.tv_information_2()
-            time.sleep(5)
-            exit()
-
-        elif tv_command == "9":
-            print("Exiting tv2 settings")
-            break
-
-        elif tv_command == "1":
-            tv2.turn_on()
-        
-        elif tv_command == "2":
-            tv2.turn_off()
-        
-        elif tv_command == "3":
-            tv2.volume_settings()
-        
-        elif tv_command == "4":
-            tv2.choose_volume_number()
-        
-        elif tv_command == "5":
-            tv2.channel_settings()
-
-        elif tv_command == "6":
-            tv2.choose_channel_number()
-        
-        elif tv_command == "7":
-            tv2.channel_list_settings()
-        
-        elif tv_command == "8":
-            tv2.tv_information_2()
-        
-        else:
-            print("Invalid Command \n")
-            continue
 
 
