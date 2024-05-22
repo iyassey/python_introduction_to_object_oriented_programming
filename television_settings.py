@@ -124,7 +124,7 @@ class TV():
                 channel_number = int(input(f"Enter channel number 1-{get_length_of_channel_list}: \nEnter 0 to exit: \nChoose: "))
                 if 1<=channel_number<=get_length_of_channel_list:
                     self.current_channel = channel_number
-                    print("Current Channel: ",self.current_channel,"\n")
+                    print("Current Channel: ",self.channel_list[self.current_channel-1],"\n")
                 elif channel_number == 0:
                     print("\n")
                     break
