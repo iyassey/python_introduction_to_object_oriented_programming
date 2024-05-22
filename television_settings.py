@@ -140,7 +140,10 @@ class TV():
     def __len__(self):
     	return "---All the information---\nTV Current Status: {}\nTV Current Volume: {}\nTV Channel List: {}\nTV Current Channel: {}".format(self.status, self.volume, self.channel_list, self.current_channel)
 
-                
+
+#Create the object "tv1" and "tv2"
+tv1 = TV()
+tv2 = TV()
     
 
 
