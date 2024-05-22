@@ -161,7 +161,7 @@ class TV():
     
     def tv_information_2(self):
         print(f"""
-        --------------TV1 INFORMATION--------------
+        --------------TV2 INFORMATION--------------
         Current Status:{self.status}
         Volume Level:{self.volume}
         Current Channel:{self.current_channel}
@@ -172,7 +172,7 @@ class TV():
         return len(self.channel_list)
     
     #Create a method that will return all information
-    def __len__(self):
+    def __str__(self):
     	return "---All the information---\nTV Current Status: {}\nTV Current Volume: {}\nTV Channel List: {}\nTV Current Channel: {}".format(self.status, self.volume, self.channel_list, self.current_channel)
 
 

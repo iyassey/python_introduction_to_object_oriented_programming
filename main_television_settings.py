@@ -138,26 +138,25 @@ def main():
 
     while True:
         try:
-            answer = str(input("Choose: "))
-            if answer == "1":
+            answer = int(input("Choose: "))
+            if answer == 1:
                 television_settings = change_settings_tv1()
 
-            elif answer == "2":
+            elif answer == 2:
                 television_settings = change_settings_tv2()
 
-            elif answer == "3":
+            elif answer == 3:
                 television_settings = tv1.tv_information_1()
 
-            elif answer == "4":
+            elif answer == 4:
                 television_settings = tv2.tv_information_2()
 
-            elif answer == "5":
+            elif answer == 5:
                 print("Thank you for using my program!")
-                print(time.sleep(3))
-                print(time.sleep(2))
-                print(time.sleep(1))
                 exit()
-        except:
+            else:
+                continue
+        except ValueError:
             print("Unknown Command")
 
 main()
