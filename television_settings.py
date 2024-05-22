@@ -110,7 +110,7 @@ class TV():
             except ValueError:
                 print("Unknown Command")
 
-    #Create a method that allows that user to change channge list settings
+    #Create a method that allows that user to change channel list settings
     def channel_list_settings(self):
         while True:
             try:
@@ -131,6 +131,15 @@ class TV():
             
             except ValueError:
                 print("Unknonw Command")
+    
+    #Create a method that will return the length of channel list
+    def __len__(self):
+        return len(self.channel_list)
+    
+    #Create a method that will return all information
+    def __len__(self):
+    	return "---All the information---\nTV Current Status: {}\nTV Current Volume: {}\nTV Channel List: {}\nTV Current Channel: {}".format(self.status, self.volume, self.channel_list, self.current_channel)
+
                 
     
 
