@@ -35,7 +35,7 @@ def change_settings_tv1():
                 exit()
 
             elif tv_command == "9":
-                print("Exiting tv1 settings")
+                print("Exiting tv1 settings \n")
                 break
 
             elif tv_command == "1":
@@ -94,7 +94,7 @@ def change_settings_tv2():
                 exit()
 
             elif tv_command == "9":
-                print("Exiting tv2 settings")
+                print("Exiting tv2 settings \n")
                 break
 
             elif tv_command == "1":

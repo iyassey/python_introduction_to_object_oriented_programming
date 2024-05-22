@@ -92,24 +92,24 @@ class TV():
                     channel = ord(channel[answer]) #convert the channel input into the decimal equivalent of ascii
                     channel = int(channel)
 
-                if channel == 101:
+                if channel == 101: #101 is the decimal equivalent of str 'e' in ascii
                     break
 
-                if channel == 60:
+                if channel == 60: #60 is the decimal equivalent of str '<' in ascii
                     if self.current_channel == 1:
                         print("There are no more channel lower than this. \n")
                     else:
                         self.current_channel -= 1 
                         print("Current Channel: ",self.current_channel,"\n")
                 
-                if channel == 62:
+                if channel == 62: #62 is the decimal equivalent of str '>' in ascii 
                     if self.current_channel >=120:
                         print("There are no more channel beyond this.\n")
                     else:
                         self.current_channel +=1
                         print("Current channel: ", self.current_channel,"\n")
                 
-                if channel == 114:
+                if channel == 114: #114 is the decimal equivalent of 'r'
                     random_number = random.randint(0, len(self.channel_list) -1)
                     self.current_channel = self.channel_list[random_number]
                     print("Current Channel: ",self.current_channel, "\n")
@@ -120,8 +120,9 @@ class TV():
     def choose_channel_number(self):
         while True:
             try:
-                channel_number = int(input("Enter channel number 1-120: \nEnter 0 to exit: "))
-                if 1<=channel_number<=120:
+                get_length_of_channel_list = len(self.channel_list)
+                channel_number = int(input(f"Enter channel number 1-{get_length_of_channel_list}: \nEnter 0 to exit: \nChoose: "))
+                if 1<=channel_number<=get_length_of_channel_list:
                     self.current_channel = channel_number
                     print("Current Channel: ",self.current_channel,"\n")
                 elif channel_number == 0:
@@ -134,7 +135,7 @@ class TV():
     def channel_list_settings(self):
         while True:
             try:
-                channel_list = str(input("Change Channel Name 'c' \nAdd Channel 'a' \nChoose: "))
+                channel_list = str(input("Change Channel Name 'c' \nAdd Channel 'a' \nShow Channel List 'l' \nExit 'e' \nChoose: "))
                 channel_list = channel_list.lower()
 
                 if channel_list == "c":
@@ -142,11 +143,16 @@ class TV():
                     channel_number = int(input("Enter the channel number: "))
                     self.channel_list[channel_number - 1] = channel_name
                     print(f"Channel name was successfully changed \nChannel number:{channel_number} \nChannel Name: {channel_name} \n")
-                    break
                 
                 elif channel_list == "a":
                     add_channel_name = input("Enter a channel name: ")
                     self.channel_list.append(add_channel_name)
+                    print(f"Channel {add_channel_name} was successfully added in the channel list \n")
+                
+                elif channel_list == "l":
+                    print(self.channel_list)
+                
+                elif channel_list == "e":
                     break
             
             except:
