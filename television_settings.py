@@ -80,6 +80,7 @@ class TV():
                     print("\n")
                     break
             except:
+                print("\n")
                 continue
                 
 #create a method that allows the user to change the channel settings
@@ -103,7 +104,7 @@ class TV():
                 
                 if channel == 62:
                     if self.current_channel >=120:
-                        print("There are no more channel beyond this. \n")
+                        print("There are no more channel beyond this.\n")
                     else:
                         self.current_channel +=1
                         print("Current channel: ", self.current_channel,"\n")
@@ -133,7 +134,7 @@ class TV():
     def channel_list_settings(self):
         while True:
             try:
-                channel_list = str(input("Change Channel Name 'c' \nAdd Channel 'a' \nChoose"))
+                channel_list = str(input("Change Channel Name 'c' \nAdd Channel 'a' \nChoose: "))
                 channel_list = channel_list.lower()
 
                 if channel_list == "c":
