@@ -15,7 +15,7 @@ class TV():
     #channel_list has a channel from 1 to 120
     #current_channel has no current channel
 
-    def __init__(self, status = "OFF", volume = 0, channel_list = list(range(1,121)), current_channel = None):
+    def __init__(self, status = "OFF", volume = 0, channel_list = list(range(1,121)), current_channel = 1):
 
         self.status = status
         self.volume = volume
@@ -56,14 +56,14 @@ class TV():
                         print("Min Volume: 1 \n") 
                     else:
                         self.volume -=1 #reduce volume given that the volume is not less than or equal to one
-                        print("Current Volume: ",self.volume, "\n")
+                        print("Volume Level: ",self.volume, "\n")
 
                 if volume == 62: #"62" decimal equivalent of character ">" in ascii
                     if self.volume >=7: #maximum volume 
                         print("Max volume: 7 \n")
                     else:
                         self.volume +=1
-                        print("Current Volume:",self.volume ,"\n") #raise the volume given that the volume is not greater than or equal to seven
+                        print("Volume Level:",self.volume ,"\n") #raise the volume given that the volume is not greater than or equal to seven
             except ValueError:
                 print("Unknown Command")
                 continue
@@ -72,10 +72,13 @@ class TV():
     def choose_volume_number(self):
         while True:
             try:
-                volume_number = int("Enter channel number: ")
-                if 1<=volume_number<=7: #lets the user chose a specific volume
-                    self.volume == volume_number
-                    print("Current volume: \n",self.volume)
+                volume_level = int(input("Enter volume level: 1-7 \nEnter 10 to exit: "))
+                if 1<=volume_level<=7:
+                    self.volume = volume_level
+                    print("Volume Level: ", self.volume, "\n")
+                elif volume_level == 10:
+                    print("\n")
+                    break
             except ValueError:
                 continue
                 
@@ -86,26 +89,26 @@ class TV():
                 channel = input("Channel 1-120 \nChannel up '>' \nChannel down '< \nRandom Channel 'r' \nExit 'e' \nChoose: ")
                 for answer in range(len(channel)):
                     channel = ord(channel[answer]) #convert the channel input into the decimal equivalent of ascii
-                    channel = str(channel)
+                    channel = int(channel)
 
-                if channel == "101":
+                if channel == 101:
                     break
 
-                if channel == "60":
+                if channel == 60:
                     if self.current_channel == 1:
                         print("There are no more channel lower than this.")
                     else:
                         self.current_channel -= 1 
-                        print("Current Channel: ",self.current_channel)
+                        print("Current Channel: ",self.current_channel,"\n")
                 
-                if channel == "62":
+                if channel == 62:
                     if self.current_channel >=120:
                         print("There are no more channel beyond this.")
                     else:
                         self.current_channel +=1
-                        print("Current channel: ", self.current_channel)
+                        print("Current channel: ", self.current_channel,"\n")
                 
-                if channel == "114":
+                if channel == 114:
                     random_number = random.randint(0, len(self.channel_list) -1)
                     self.current_channel = self.channel_list[random_number]
                     print("Current Channel: ",self.current_channel)
@@ -116,9 +119,13 @@ class TV():
     def choose_channel_number(self):
         while True:
             try:
-                channel_number = int("Enter channel number: ")
-                self.current_channel = channel_number -1
-                print(f"Current channel: ",self.current_channel)
+                channel_number = int(input("Enter channel number 1-120: \nEnter 0 to exit: "))
+                if 1<=channel_number<=120:
+                    self.current_channel = channel_number
+                    print("Current Channel: ",self.current_channel,"\n")
+                elif channel_number == 0:
+                    print("\n")
+                    break
             except ValueError:
                 continue
 
@@ -143,6 +150,14 @@ class TV():
             
             except ValueError:
                 print("Unknonw Command")
+    
+    def tv_information(self):
+        print(f"""
+        --------------TV1 INFORMATION--------------
+        Current Status:{self.status}
+        Volume Level:{self.volume}
+        Current Channel:{self.current_channel}
+        """)
     
     #Create a method that will return the length of channel list
     def __len__(self):
@@ -211,7 +226,7 @@ def change_settings_tv1():
             tv1.channel_list_settings()
         
         elif tv_command == "8":
-            print(tv1)
+            tv1.tv_information()
         
         else:
             print("Invalid Command")
