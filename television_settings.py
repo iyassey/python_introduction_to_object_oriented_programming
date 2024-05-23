@@ -43,22 +43,19 @@ class TV():
     def volume_settings(self):
         while True:
             try:
-                volume = input("Volume 1-7 \nVolume down '<' \nVolume up '>' \nExit 'e' \nChoose: ")
-                for answer in range(len(volume)):
-                    volume = ord(volume[answer]) #convert the input volume to the decimal equivalent of ascii
-                    volume = int(volume) #convert to integer
+                volume = str(input("Volume 1-7 \nVolume down '<' \nVolume up '>' \nExit 'e' \nChoose: "))
 
-                if volume == 101: #"101" decimal equivalent of character "e" in ascii
+                if volume == "e":
                     break #exits the loop for volume settings
 
-                if volume == 60: #"60" decimal equivalent of character "<"in ascii. 
+                if volume == "<":
                     if self.volume <=1: #minimum volume 
                         print("Min Volume: 1 \n") 
                     else:
-                        self.volume -=1 #reduce volume given that the volume is not less than or equal to one
+                        self.volume -=1 
                         print("Volume Level: ",self.volume, "\n")
 
-                if volume == 62: #"62" decimal equivalent of character ">" in ascii
+                if volume == ">":
                     if self.volume >=7: #maximum volume 
                         print("Max volume: 7 \n")
                     else:
@@ -87,29 +84,26 @@ class TV():
     def channel_settings(self):
         while True:
             try:
-                channel = input("Channel 1-120 \nChannel up '>' \nChannel down '< \nRandom Channel 'r' \nExit 'e' \nChoose: ")
-                for answer in range(len(channel)):
-                    channel = ord(channel[answer]) #convert the channel input into the decimal equivalent of ascii
-                    channel = int(channel)
+                channel = str(input("Channel 1-120 \nChannel up '>' \nChannel down '< \nRandom Channel 'r' \nExit 'e' \nChoose: "))
 
-                if channel == 101: #101 is the decimal equivalent of str 'e' in ascii
+                if channel == "e": #101 is the decimal equivalent of str 'e' in ascii
                     break
 
-                if channel == 60: #60 is the decimal equivalent of str '<' in ascii
+                if channel == "<": 
                     if self.current_channel == 1:
                         print("There are no more channel lower than this. \n")
                     else:
                         self.current_channel -= 1 
                         print("Current Channel: ",self.current_channel,"\n")
                 
-                if channel == 62: #62 is the decimal equivalent of str '>' in ascii 
+                if channel == ">": 
                     if self.current_channel >=120:
                         print("There are no more channel beyond this.\n")
                     else:
                         self.current_channel +=1
                         print("Current channel: ", self.current_channel,"\n")
                 
-                if channel == 114: #114 is the decimal equivalent of 'r'
+                if channel == "r": 
                     random_number = random.randint(0, len(self.channel_list) -1)
                     self.current_channel = self.channel_list[random_number]
                     print("Current Channel: ",self.current_channel, "\n")

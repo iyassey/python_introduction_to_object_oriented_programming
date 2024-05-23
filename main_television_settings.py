@@ -12,7 +12,10 @@ tv2 = TV()
 #Create a method that will allow the user to change the settings of tv 1
 
 def change_settings_tv1():
-    print("""
+
+    while True:
+    
+        print("""
         --------------TV1 SYSTEM--------------
         1. ON
         2. OFF
@@ -25,7 +28,7 @@ def change_settings_tv1():
         9. Exit TV1 Settings 
         10. Shut down
     """)
-    while True:
+    
         try:
             tv_command = input("Enter your command: ")
 
@@ -73,7 +76,10 @@ def change_settings_tv1():
 #Create a method that will allow the user to change the settings of tv 2
 
 def change_settings_tv2():
-    print("""
+
+    while True:
+
+        print("""
         --------------TV2 SYSTEM--------------
         1. ON
         2. OFF
@@ -86,7 +92,7 @@ def change_settings_tv2():
         9. Exit TV1 Settings 
         10. Shut down
     """)
-    while True:
+        
         try:
             tv_command = input("Enter your command: ")
 
