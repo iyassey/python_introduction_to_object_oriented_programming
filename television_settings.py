@@ -61,7 +61,11 @@ class TV():
                     else:
                         self.volume +=1
                         print("Volume Level:",self.volume ,"\n") #raise the volume given that the volume is not greater than or equal to seven
-            except:
+                
+                else:
+                    print("Invalid Input \n")
+                    continue
+            except ValueError:
                 print("Unknown Command \n")
                 continue
 
@@ -76,6 +80,10 @@ class TV():
                 elif volume_level == 10:
                     print("\n")
                     break
+                
+                else:
+                    print("Invalid Input \n")
+                    continue
             except:
                 print("Invalid Input \n")
                 continue
@@ -107,6 +115,10 @@ class TV():
                     random_number = random.randint(0, len(self.channel_list) -1)
                     self.current_channel = self.channel_list[random_number]
                     print("Current Channel: ",self.current_channel, "\n")
+                
+                else:
+                    print("Invalid Input \n")
+                    continue
             except:
                 print("Unknown Command \n")
     
@@ -122,6 +134,9 @@ class TV():
                 elif channel_number == 0:
                     print("\n")
                     break
+                
+                else: 
+                    print("Invalid Input \n")
             except:
                 print("\n")
                 continue
@@ -149,6 +164,10 @@ class TV():
                 
                 elif channel_list == "e":
                     break
+                
+                else:
+                    print("Invalid Input \n")
+                    continue
             
             except:
                 print("Unknonw Command \n")
