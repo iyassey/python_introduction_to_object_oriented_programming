@@ -89,7 +89,7 @@ def change_settings_tv2():
         6. Change Channel Number
         7. Channel Settings
         8. TV Info
-        9. Exit TV1 Settings 
+        9. Exit TV2 Settings 
         10. Shut down
     """)
         
